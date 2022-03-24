@@ -1,4 +1,4 @@
 //import * as user from './User';
-import my,{firstName,lastName} from './User';
+import my from './User';
 
-console.log(my,firstName,lastName)
+console.log(my)

@@ -1,4 +1,4 @@
-export let firstName = "mehrdad";
-export let lastName = "tabesh";
-export default 'hi';
+ let firstName = "mehrdad";
+  let lastName = "tabesh";
+export default {name:firstName,family:lastName};
 
