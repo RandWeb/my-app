@@ -1,4 +1,4 @@
-//import * as user from './User';
-import my from './User';
+import User,{ firstName ,fetchMovies} from './Components/User';
 
-console.log(my)
+console.log(User,fetchMovies)
+
