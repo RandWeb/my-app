@@ -7,7 +7,7 @@ class App extends Component {
   state = {
     users: [
       { id: 1, name: "mehrdad", age: "27" },
-      { id: 2, name: "sajjad", age: "27" },
+      { id: 2, name: "sajjad", age: "7" },
       { id: 3, name: "mohammad mahdi", age: "12" }
     ]
   }
@@ -23,13 +23,21 @@ class App extends Component {
   onUserDataChanged = (userId, data) => {
     console.log(userId, data)
   }
+
+  showList=()=>{
+    return (
+      <div>
+      <User name={this.state.users[0].name} age={this.state.users[0].age} onChanged={this.onUserDataChanged} />
+      <User name={this.state.users[1].name} age={this.state.users[1].age} onChanged={this.onUserDataChanged} />
+      <User name={this.state.users[2].name} age={this.state.users[2].age} onChanged={this.onUserDataChanged} />
+    </div>
+    )
+  }
   render() {
     return (
       <div>
         <button onClick={this.onButtonClick}>click me</button>
-        <User name={this.state.users[0].name} age={this.state.users[0].age} onChanged={this.onUserDataChanged} />
-        <User name={this.state.users[1].name} age={this.state.users[1].age} onChanged={this.onUserDataChanged} />
-        <User name={this.state.users[2].name} age={this.state.users[2].age} onChanged={this.onUserDataChanged} />
+        {this.showList()}
       </div>
     )
   }
