@@ -25,6 +25,8 @@ class User extends Component {
                 hi {this.state.name} your age is {this.state.age}
                 <br />
                 {this.props.children}
+
+                <h2>Some Text</h2>
             </div>
         );
     };
