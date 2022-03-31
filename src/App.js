@@ -1,6 +1,6 @@
 import User from './Components/User'
 import React, { Component } from 'react';
-
+import './css/master.css';
 
 // state full component or class component
 class App extends Component {
@@ -10,12 +10,19 @@ class App extends Component {
       { id: 2, name: "sajjad", age: "7" },
       { id: 3, name: "mohammad mahdi", age: "12" }
     ],
+    searchText: ""
   }
   showList = () => {
+    let users = this.state.searchText == "" ? this.state.users :
+      this.state.users.filter(user => {
+        let reg = new RegExp(this.state.searchText)
+        if (user.age.match(reg) || user.name.match(reg)) return user;
+      })
+    console.log(users);
     return (
       <div >
         {
-          this.state.users.map(user => (
+          users.map(user => (
             <User
               key={user.id}
               id={user.id}
@@ -35,10 +42,11 @@ class App extends Component {
     let newState = { ...this.state }
     let ids = newState.users.map(id => id.id);
     let id = Math.max(...ids);
-    if(newState.users.length == 0) id = 0;
+    if (newState.users.length == 0) id = 0;
     let newPerson = { id: ++id, name: nname, age: aage };
     console.log(newPerson);
     newState.users.push(newPerson);
+    // or newState.users = [...this.newState.users,newPerson];
     this.setState(newState);
   }
   RemovePerson = (id) => {
@@ -47,11 +55,18 @@ class App extends Component {
     newState.users = newState.users.filter(user => user.id != id);
     this.setState(newState);
   }
+
+  filterUsers = (e) => {
+    let newState = { ...this.state };
+    newState.searchText = e.target.value;
+   this.setState(newState)
+  }
   render() {
     return (
       <div>
         <button onClick={this.AddPerson}> Add Person </ button>
         <br />
+        <input className='search' type="text" placeholder="Enter any ..." onChange={this.filterUsers} />
         <br />
         {this.showList()}
       </div>

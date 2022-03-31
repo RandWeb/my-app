@@ -1,0 +1,10 @@
+body{
+    background-color: #fff;
+    text-align: center;
+}
+
+input.search{
+margin: 10px auto;
+width: 400px;
+padding: 10px;
+}
