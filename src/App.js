@@ -13,7 +13,7 @@ class App extends Component {
     searchText: ""
   }
   showList = () => {
-    let users = this.state.searchText == "" ? this.state.users :
+    let users = this.state.searchText === "" ? this.state.users :
       this.state.users.filter(user => {
         let reg = new RegExp(this.state.searchText)
         if (user.age.match(reg) || user.name.match(reg)) return user;
@@ -42,7 +42,7 @@ class App extends Component {
     let newState = { ...this.state }
     let ids = newState.users.map(id => id.id);
     let id = Math.max(...ids);
-    if (newState.users.length == 0) id = 0;
+    if (newState.users.length === 0) id = 0;
     let newPerson = { id: ++id, name: nname, age: aage };
     console.log(newPerson);
     newState.users.push(newPerson);
@@ -51,8 +51,8 @@ class App extends Component {
   }
   RemovePerson = (id) => {
     let newState = { ...this.state };
-    console.log(newState.users.filter(i => i.id == id));
-    newState.users = newState.users.filter(user => user.id != id);
+    console.log(newState.users.filter(i => i.id === id));
+    newState.users = newState.users.filter(user => user.id !== id);
     this.setState(newState);
   }
 
