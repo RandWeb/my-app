@@ -7,7 +7,7 @@ class AppStudent extends Component {
             <div>
                 <Student name={"ali"} age={20} />
 
-                <Student name={"reza"} age={12} />
+                <Student name={"reza"} age={"12"} />
                 <Student name={"mehrdad"} />
             </div>
         )

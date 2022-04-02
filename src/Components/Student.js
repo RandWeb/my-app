@@ -1,12 +1,17 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types'
 
 export default class Student extends Component {
-    // defaultProps = {
+    // static defaultProps = {
     //     age:0,
     //     name:""
     // }
-    getColor =()=>{
-        return(this.props.age > 18 ? "green" : 'red') ;
+
+    // static propTypes = {
+    //     age: PropTypes.number
+    // }
+    getColor = () => {
+        return (this.props.age > 18 ? "green" : 'red');
     };
     render() {
         return (
@@ -17,7 +22,10 @@ export default class Student extends Component {
     }
 }
 
-Student.defaultProps ={
-    age:0,
-    name:""
+// Student.defaultProps = {
+//     age: 0,
+//     name: ""
+// }
+Student.propTypes = {
+    age: PropTypes.number.isRequired
 }
